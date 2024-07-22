@@ -8,6 +8,7 @@ import nltk
 from nltk.corpus import wordnet
 import json
 import sys
+from src.exception.exception import customexception
 from src.logger.logger import logger
 
 # Ensure you have the WordNet data
@@ -31,7 +32,6 @@ class Profanity:
             self.negative_words = set(word.lower() for word in words_list['negative_words'])
         
         logger.info("Profanity JSON file loaded successfully")
-        pass
     
     def get_antonym(self, word):
         logger.info("antonym checking started")
@@ -44,11 +44,14 @@ class Profanity:
         return antonyms[0] if antonyms else word
     
     def initiate_profanity_check(self, sentence):
+      try:
         logger.info("initiate_profanity_check started")
         words = sentence.split()
         transformed_words = [self.get_antonym(word.lower()) if word.lower() in self.negative_words else word for word in words]
         logger.info("initiate_profanity_check finished")
         return ' '.join(transformed_words)
+      except Exception as e:
+          raise customexception(e,sys)
 
 
 if __name__=="__main__":
