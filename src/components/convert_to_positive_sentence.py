@@ -39,7 +39,6 @@ class Profanity:
             for lemma in syn.lemmas():
                 if lemma.antonyms():
                     antonyms.append(lemma.antonyms()[0].name())
-        logger.info("Antonym checking finished")
         return antonyms[0] if antonyms else word
     
     def initiate_profanity_check(self, sentence):
