@@ -2,3 +2,5 @@ pandas
 numpy
 transformers
 scikit-learn
+
+-e .
