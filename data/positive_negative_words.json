@@ -1,0 +1,42 @@
+{
+    "positive_words": [
+      "happy", "joyful", "delighted", "pleased", "content", "elated", "cheerful", "ecstatic", "blissful", "satisfied",
+      "thrilled", "radiant", "exuberant", "jovial", "serene", "euphoric", "excited", "merry", "grateful", "lively",
+      "buoyant", "jubilant", "animated", "overjoyed", "gleeful", "sanguine", "positive", "uplifted", "enthusiastic", "pleasurable",
+      "vivacious", "happy-go-lucky", "smiling", "contented", "exultant", "spirit", "upbeat", "vivid", "happy-hearted", "jolly",
+      "elation", "joyous", "cheer", "satisfaction", "pleased", "zestful", "bright", "cheery", "peaceful", "joy",
+      "triumphant", "hopeful", "blithe", "inspired", "excitedly", "pleasure", "contentedly", "light-hearted", "bubbly", "grinning",
+      "gleaming", "delightful", "effervescent", "mirthful", "jubilance", "in high spirits", "joyfully", "happy hearted", "rosy", "overjoyed",
+      "contentment", "giddy", "cheerfulness", "serenity", "elatedly", "joyfulness", "bright-eyed", "jubilantly", "cheerful-hearted", "sublime",
+      "hope", "radiance", "elatedness", "favorable", "swell", "excitedness", "smiley", "untroubled", "happy-go-lucky", "enthused",
+      "festive", "contentedly", "upbeatness", "euphoric", "zippy", "positive-minded", "joyousness", "carefree", "effervescently", "glowing",
+      "ebullient", "contentedly", "glad", "gleefully", "pleased as punch", "joyous-hearted", "cheerfulness", "happy-hearted", "playful",
+      "jovially", "contentedly", "elatedness", "joyfulness", "warm-hearted", "sanguinely", "happy-spirited", "sunny", "chirpy", "chipper",
+      "heartened", "lighthearted", "brightened", "happy-go-lucky", "joyful-hearted", "satisfiedly", "contentedly", "exuberantly", "joyous", "playfully",
+      "play", "darn", "freaking", "heck", "cat", "shoot", "butt", "witch", "rascal", "junk", "jerk", "freak", "gosh darn", "mother lover", "rooster",
+      "worker", "person", "meanie", "nonsense", "fool", "simpleton", "villain", "blockhead", "nincompoop", "intoxicated", "scoundrel", "messed up", "dummy",
+      "loving", "hug", "scolding", "idiot", "dolt", "drunkard", "drunk", "clean","dress"
+    ],
+    "negative_words": [
+      "sad", "unhappy", "depressed", "miserable", "sorrowful", "dismal", "distressed", "gloomy", "melancholy", "disheartened",
+      "downcast", "blue", "despondent", "despairing", "doleful", "woeful", "forlorn", "troubled", "angry", "dismayed",
+      "regretful", "heartbroken", "mournful", "unfortunate", "displeased", "painful", "unsettled", "angst-ridden", "dismal",
+      "bitter", "distressing", "frustrated", "sulky", "discontented", "downhearted", "dispirited", "disconsolate", "discomforted", "dejected",
+      "discontent", "unhappy-hearted", "unfulfilled", "disheartened", "woefully", "sad-hearted", "hopeless", "gloom", "disheartened",
+      "bleak", "depressing", "unhappy-go-lucky", "heavy-hearted", "unsettling", "dejectedly", "sadly", "distress", "despair",
+      "mournfully", "angrily", "discontentedly", "downcastly", "unhappily", "in despair", "miserably", "uncheerful", "sorrowfully", "distressingly",
+      "dismalness", "sadness", "dolefulness", "unpleasant", "upset", "troubled", "dejectedly", "angrily", "resentful", "blue-hearted",
+      "despairingly", "unfulfilled", "unrestful", "down-spirited", "regret", "displeased", "broken-hearted", "heartbroken", "disturbed", "doleful",
+      "mournfulness", "frustrating", "angst", "unfortunate", "unhappiness", "discomfort", "low", "distressful", "downturn", "discontentedly",
+      "pessimistic", "sad-faced", "unhappy-faced", "despondency", "regretfully", "despairingly", "miserableness", "glum", "depressedly", "discontented",
+      "sex", "damn", "fucking", "hell", "pussy", "shit", "ass", "bitch", "bastard", "crap", "dick", "fuck", "goddamn", "motherfucker", "cock",
+      "cunt", "whore", "slut", "asshole", "bullshit", "douche", "fag", "nigger", "prick", "twat", "wanker", "arse", "arsehole", "bloody", "bugger", "git",
+      "knob", "minger", "piss", "shag", "sod", "tosser", "wank", "bollocks", "feck", "shite", "shagging", "bollocking", "jerkoff", "jackass", "dipshit",
+      "numbnuts", "scumbag", "shithead", "shitface", "motherfucking", "shitfaced", "dammit", "sumbitch", "fucked", "fucker", "goddammit", "bullshitting",
+      "dickhead", "shithole", "fuckhead", "asshat", "asswipe", "fucked up", "shitting", "cockhead", "cocksucker", "motherfuck", "ballbag", "bampot",
+      "bint", "dobber", "munter", "numpty", "pillock", "plonker", "scrubber", "prat", "twonk", "bellend", "knobhead", "bawbag", "jobbernowl", "fuckwit",
+      "dickwad", "shitbag", "fucktard", "knobjockey", "pisshead", "gobshite", "jizz", "snafu", "turd", "shitstorm", "shitshow", "shat", "twatwaffle",
+      "twunt", "wazzock", "dirty"
+    ]
+  }
+  
