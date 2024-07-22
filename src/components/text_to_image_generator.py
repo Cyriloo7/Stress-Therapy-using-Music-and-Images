@@ -3,7 +3,6 @@ import sys
 from src.exceptions.exception import customexception
 from src.components.text_summarization import TextSummarizer
 from transformers import AutoImageProcessor, AutoModelForImageClassification
-from transformers import AutoModelForImageClassification
 from PIL import Image
 import requests
 import torch
@@ -68,7 +67,6 @@ class TextToImage:
                     image = image.resize((desired_width, desired_height), Image.LANCZOS)
                     if image:
                         with torch.no_grad():
-
                             inputs = self.nsfw_processor(images=image, return_tensors="pt")
                             outputs = self.nsfw_model(**inputs)
                             logits = outputs.logits
