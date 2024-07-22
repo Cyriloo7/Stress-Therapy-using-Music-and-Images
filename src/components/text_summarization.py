@@ -6,22 +6,31 @@ from src.exceptions.exception import customexception
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-
-class TextSummarizer():
+class TextSummarizer:
      def __init__(self):
           self.pipe = pipeline("summarization", model="Azma-AI/bart-large-text-summarizer")
-          self.pipe = self.pipe.to(device)
+
      def first_summarize(self, text):
+        try:
+            logger.info("first summarization started")
+            summary = self.pipe(("summary of : " + text), max_length=512, min_length=150, do_sample=True, clean_up_tokenization_spaces=True)
+            logger.info("first summarization finished")
+            summary = summary[0]['summary_text']
+            return summary
+        except Exception as e:
+            raise customexception(e, sys)
+          
+
+     def second_summarize(self, text):
           try:
-               logger.info("first summarization started")
-               summary = self.pipe(("summary of : "+text),max_length=512, min_length=150, do_sample=True, clean_up_tokenization_spaces=True)
-               logger.info(" first summarization finished")
+               logger.info("second summarization started")
+               summary = self.pipe(("summary of : "+text),max_length=200, min_length=30, do_sample=True, clean_up_tokenization_spaces=True)
+               logger.info(" second summarization finished")
                return summary[0]['summary_text']
           except Exception as e:
                raise customexception(e, sys)
           
-
-     def second_summarize(self, text):
+     def third_summarize(self, text):
           try:
                logger.info("second summarization started")
                summary = self.pipe(("summary of : "+text),max_length=200, min_length=20, do_sample=True, clean_up_tokenization_spaces=True)
@@ -30,8 +39,7 @@ class TextSummarizer():
           except Exception as e:
                raise customexception(e, sys)
           
-
-if __name__ == "__main__":
+"""if __name__ == "__main__":
      summarizer = TextSummarizer()
      print(summarizer.first_summarize("This is a sample text to summarize."))
-     print(summarizer.second_summarize("This is a sample text to summarize."))
+     print(summarizer.second_summarize("This is a sample text to summarize."))"""
