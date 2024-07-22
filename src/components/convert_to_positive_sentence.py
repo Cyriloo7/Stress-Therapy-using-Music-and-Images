@@ -8,11 +8,13 @@ import nltk
 from nltk.corpus import wordnet
 import json
 import sys
+from profanityfilter import ProfanityFilter
 from src.exceptions.exception import customexception
 from src.logger.logger import logger
 
 # Ensure you have the WordNet data
 nltk.download('wordnet')
+pf = ProfanityFilter()
 
 class Profanity:
 
@@ -33,27 +35,34 @@ class Profanity:
         logger.info("Profanity JSON file loaded successfully")
     
     def get_antonym(self, word):
-        logger.info("Antonym checking started")
         antonyms = []
+        logger.info("get_antonym started")
         for syn in wordnet.synsets(word):
             for lemma in syn.lemmas():
                 if lemma.antonyms():
                     antonyms.append(lemma.antonyms()[0].name())
+        logger.info("get_antonym finished successfully")
         return antonyms[0] if antonyms else word
+
+    def filter_profanity(self, sentence):
+        return pf.censor(sentence)
     
     def initiate_profanity_check(self, sentence):
         try:
             logger.info("Initiate profanity check started")
-            self.words = sentence.split()
-            transformed_words = [self.get_antonym(word.lower()) if word.lower() in self.negative_words else word for word in self.words]
+            words = sentence.split()
+            transformed_words = [self.get_antonym(word.lower()) if word.lower() in self.negative_words else word for word in words]
             logger.info("Initiate profanity check finished")
-            return ' '.join(transformed_words)
+            positive_sentence = ' '.join(transformed_words)
+            return self.filter_profanity(positive_sentence)
         except Exception as e:
             raise customexception(e, sys)
 
 if __name__ == "__main__":
     obj = Profanity()
     print(obj.initiate_profanity_check("sex to it and do good and bad"))
+
+
 
 
 

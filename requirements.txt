@@ -2,5 +2,6 @@ pandas
 numpy
 transformers
 scikit-learn
+profanityfilter
 
 -e .
