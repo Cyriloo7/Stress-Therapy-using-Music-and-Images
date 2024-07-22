@@ -19,7 +19,8 @@ class SongRecommentation:
         data['Genres'] = self.label_encoder.fit_transform(data['Genres'])
         return data
 
-    def kNN_song_recommender(self, processed_data, input_features, num_recs=len(self.df)):
+    def kNN_song_recommender(self, processed_data, input_features):
+        num_recs=len(self.df)
         logger.info("kNN_song_recommender started")
         song_model = NearestNeighbors(n_neighbors=num_recs, metric='cosine')
         song_model.fit(processed_data)
