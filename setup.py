@@ -10,6 +10,6 @@ setup(
     version='0.0.1',
     author='cyril',
     author_email='cyriljosecky@gmail.com',
-    install_requires=["scikit-learn","pandas","numpy"],
+    install_requires=["scikit-learn","pandas","numpy","transformers"],
     packages=find_packages()
 )

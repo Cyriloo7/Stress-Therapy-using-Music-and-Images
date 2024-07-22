@@ -13,8 +13,10 @@ LOG_FILEPATH=os.path.join(log_path,LOG_FILE)
 
 logging.basicConfig(level=logging.INFO, 
                     filename=LOG_FILEPATH,
-                    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"                  
+                    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"
+                    
 )
+logger = logging.getLogger(__name__)
 
 
     #[2024-01-10 15:57:26,997] 6 root - INFO -  this my second tesgting
