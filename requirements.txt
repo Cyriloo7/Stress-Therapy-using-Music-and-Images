@@ -3,5 +3,7 @@ numpy
 transformers
 scikit-learn
 profanityfilter
+spotify
+nltk
 
 -e .
