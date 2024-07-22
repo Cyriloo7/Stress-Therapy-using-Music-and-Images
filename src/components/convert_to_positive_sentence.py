@@ -8,7 +8,7 @@ import nltk
 from nltk.corpus import wordnet
 import json
 import sys
-from src.exception.exception import customexception
+from src.exceptions.exception import customexception
 from src.logger.logger import logger
 
 # Ensure you have the WordNet data
@@ -57,7 +57,7 @@ class Profanity:
 if __name__=="__main__":
 
     obj = Profanity()
-    print(obj.initiate_profanity_check(obj, "sex to it and do goos nd bad"))
+    print(obj.initiate_profanity_check("sex to it and do goos nd bad"))
 
 
 
