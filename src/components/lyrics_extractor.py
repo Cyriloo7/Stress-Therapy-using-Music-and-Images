@@ -5,6 +5,7 @@ from tqdm import tqdm
 from langdetect import detect, LangDetectException
 from googletrans import Translator
 import sys
+import pandas as pd
 from src.exceptions.exception import customexception
 
 
