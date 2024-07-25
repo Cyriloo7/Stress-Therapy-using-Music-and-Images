@@ -52,17 +52,13 @@ class SpotifySongStream:
 
             result = self.sp_client.search(q=f"track:{song_title} artist:{artist_name}", type="track")
 
-            # Check if the list is empty
             if not result['tracks']['items']:
                 print("No tracks found for the given query.")
-                # Return or handle the case where no tracks are found
                 return
 
-            # Proceed if the list is not empty
             track_id = result['tracks']['items'][0]['id']
             self.sp_client.start_playback(uris=[f"spotify:track:{track_id}"])
 
-            logger.info("image displayed")
             for i in range(4):
                 display = cv2.imread(f'artifacts/Generated image/Generated_image{i}.jpg')
                 cv2.imshow('window', display)

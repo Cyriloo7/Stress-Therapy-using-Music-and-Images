@@ -11,7 +11,6 @@ from src.exceptions.exception import customexception
 
 class LyricsExtractor:
     def __init__(self):
-        self.translator = Translator()
         self.client_access_token = "UxedcM-g8B3Z0SLMKXGyOkqEwHanXlRXNs0lvw0aYAPgO72W9YRRrogK5c165BJe"
         self.genius = lyricsgenius.Genius(self.client_access_token, timeout=10)  # Increase timeout to 10 seconds
         self.genius.remove_section_headers = True
