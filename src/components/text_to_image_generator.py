@@ -2,7 +2,7 @@ from src.logger.logger import logger
 import sys
 from src.exceptions.exception import customexception
 from src.components.text_summarization import TextSummarizer
-from transformers import AutoImageProcessor, AutoModelForImageClassification
+from transformers import pipeline
 from PIL import Image
 import requests
 import torch
@@ -10,14 +10,14 @@ import io
 
 class TextToImage:
     def __init__(self):
-        self.API_TOKEN = "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"
+        logger.info("Initializing TextToImage component")
+        self.API_TOKEN = "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"
         self.API_URL = "https://api-inference.huggingface.co/models/fluently/Fluently-XL-Final"
         self.headers = {"Authorization": f"Bearer {self.API_TOKEN}"}
 
         self.summarizer = TextSummarizer()
 
-        self.nsfw_processor = AutoImageProcessor.from_pretrained("giacomoarienti/nsfw-classifier")
-        self.nsfw_model = AutoModelForImageClassification.from_pretrained("giacomoarienti/nsfw-classifier")
+        self.nsfw_pipeline = pipeline("image-classification", model="giacomoarienti/nsfw-classifier", device=0 if torch.cuda.is_available() else -1)
 
         torch.cuda.empty_cache()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -57,23 +57,21 @@ class TextToImage:
 
                     if image:
                         with torch.no_grad():
-                            inputs = self.nsfw_processor(images=image, return_tensors="pt")
-                            outputs = self.nsfw_model(**inputs)
-                            logits = outputs.logits
+                            torch.cuda.empty_cache()
+                            results = self.nsfw_pipeline(image)
+                            predicted_label = results[0]['label']
+                            logger.info(f"Generated image {i + 1} is {predicted_label} image.")
+                            print(predicted_label)
 
-                        predicted_label = logits.argmax(-1).item()
-                        image_type = self.nsfw_model.config.id2label[predicted_label]
-                        logger.info(f"Generated image {i + 1} is {image_type} image.")
-                        print(image_type)
-
-                        if image_type == "neutral" or image_type == "drawings":
+                        if predicted_label == "neutral" or predicted_label == "drawings":
                             j = 0
                             image.save(f'artifacts/Generated image/Generated_image{i}.jpg', 'JPEG')
                             progress = False
                         else:
-                            logger.info(f"Generated image {i + 1} is {image_type} image. Retrying...")
-                            print(f"Generated image {i + 1} is {image_type} image. Retrying...")
+                            logger.info(f"Generated image {i + 1} is {predicted_label} image. Retrying...")
+                            print(f"Generated image {i + 1} is {predicted_label} image. Retrying...")
                             inp = self.summarizer.third_summarize(inp)
+                            print(inp)
                             inp = "scenery image of, " + inp
                             j += 1
 
@@ -86,8 +84,8 @@ class TextToImage:
                 print(f"Error generating image {i + 1}: {str(e)}")
                 logger.error(f"Error generating image {i + 1}: {str(e)}")
 
-
-"""if __name__ == "__main__":
+"""
+if __name__ == "__main__":
     obj = TextToImage()
-    input_txt = ["a cat", "a dog", "a tiger", "an elephant"]
+    input_txt = ["a cat", "a nude human", "a tiger", "an elephant"]
     obj.text_to_image(input_txt)"""

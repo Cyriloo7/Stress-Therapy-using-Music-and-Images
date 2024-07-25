@@ -6,7 +6,7 @@ class DivideInToFourParts:
     def __init__(self):
         pass
 
-    def divide_text_into_parts(self, text, num_parts):
+    def divide_into_four_parts(self, text, num_parts=4):
         try:
             logger.info("divide_text_into_parts started")
             # Split the text into sentences based on full stops

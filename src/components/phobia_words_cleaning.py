@@ -7,6 +7,7 @@ from nltk.stem import WordNetLemmatizer
 
 class PhobiaWordsCleaning:
     def __init__(self):
+        logger.info("PhobiaWordsCleaning started")
         # Load phobia data from CSV
         self.dat = pd.read_csv('data/phobia_new.csv')
         # Create phobia dictionary
