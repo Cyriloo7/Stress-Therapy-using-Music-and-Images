@@ -46,7 +46,7 @@ def thread_one(j_file, js_file, input_features):# detection thread
     while True:
         c=c+1
         try:
-            if count/150==0:
+            if count/100==0:
                 prediction = StressDetection.detect_stress(j_file)
             else:
                 prediction = StressDetection.detect_stress(js_file)

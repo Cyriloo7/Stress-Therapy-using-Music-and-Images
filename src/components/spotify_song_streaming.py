@@ -95,12 +95,12 @@ class SpotifySongStream:
                 else:
                     logger.warning(f"Image artifacts/Generated image/Generated_image{i}.jpg not found.")
 
-            try:
+            """try:
                 self.sp_client.pause_playback()
                 print("Playback paused successfully.")
             except spotipy.exceptions.SpotifyException as e:
                 print(f"Error pausing playback: {e}")
-            logger.info("Playback paused successfully.")
+            logger.info("Playback paused successfully.")"""
             time.sleep(1)
 
         except Exception as e:
