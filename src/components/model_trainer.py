@@ -10,6 +10,7 @@ from transformers import ViTFeatureExtractor
 from torchvision.transforms import Compose, Resize, Normalize, ToTensor
 from sklearn.preprocessing import LabelEncoder
 from transformers import ViTForImageClassification, TrainingArguments, Trainer
+from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter
 from datasets import load_metric
 import numpy as np
 import torch
@@ -21,7 +22,14 @@ class ImageEmotionDetection:
         self.model = ViTForImageClassification.from_pretrained('google/vit-base-patch16-224-in21k', num_labels=7)
         self.feature_extractor = ViTFeatureExtractor.from_pretrained('google/vit-base-patch16-224-in21k')
         self.normalize = Normalize(mean=self.feature_extractor.image_mean, std=self.feature_extractor.image_std)
-        self.transform = Compose([Resize(self.feature_extractor.size["height"]), ToTensor(), self.normalize])
+        self.transform = Compose([
+            Resize(self.feature_extractor.size["height"]),
+            RandomHorizontalFlip(),
+            RandomRotation(10),
+            ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
+            ToTensor(),
+            self.normalize
+        ])
         self.label_encoder = LabelEncoder()
         self.ModelSaveAndLoad = ModelSaveAndLoad()
         self.accuracy_metric = load_metric("accuracy", trust_remote_code=True)
@@ -113,7 +121,15 @@ class ImageEmotionDetection:
                 learning_rate=5e-5,
                 weight_decay=0.01,
                 save_total_limit=3,
+                lr_scheduler_type='cosine_with_restarts',  # Adding learning rate scheduler
+                warmup_steps=500,  # Adding warmup steps
+                logging_dir='./logs',  # Logging directory
+                logging_steps=10,
+                load_best_model_at_end=True,  # Save the best model during training
+                metric_for_best_model='accuracy'
             )
+
+            optimizer = torch.optim.AdamW(self.model.parameters(), lr=5e-5, weight_decay=0.01)
 
             # Initialize Trainer
             trainer = Trainer(
@@ -123,17 +139,27 @@ class ImageEmotionDetection:
                 eval_dataset=val_dataset,
                 tokenizer=self.feature_extractor,
                 compute_metrics=self.compute_metrics,
+                optimizers=(optimizer, None) 
             )
 
-            mlflow.autolog()
+            # Start MLflow run
+            with mlflow.start_run():
+                mlflow.log_params(training_args.to_dict()) 
+                mlflow.autolog()
 
-            # Train the model
-            trainer.train()
+                # Train the model
+                trainer.train()
 
-            # Evaluate the model
-            eval_results = trainer.evaluate()
-            print(f"Evaluation results: {eval_results}")
-            ModelSaveAndLoad.save_model(trainer, "artifacts/model/emotionclassification")
+                # Evaluate the model
+                eval_results = trainer.evaluate()
+                print(f"Evaluation results: {eval_results}")
+
+                # Log evaluation results
+                mlflow.log_metrics(eval_results)
+
+                # Save the model
+                self.ModelSaveAndLoad.save_model(trainer, "artifacts/model/emotionclassification")
+
         except Exception as e:
             logger.info(customexception(e, sys))
             raise customexception(e, sys)
