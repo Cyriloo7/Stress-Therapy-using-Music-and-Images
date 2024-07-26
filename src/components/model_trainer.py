@@ -121,15 +121,13 @@ class ImageEmotionDetection:
                 learning_rate=5e-5,
                 weight_decay=0.01,
                 save_total_limit=3,
-                lr_scheduler_type='cosine_with_restarts',  # Adding learning rate scheduler
+                lr_scheduler_type='cosine',  # Adding learning rate scheduler
                 warmup_steps=500,  # Adding warmup steps
                 logging_dir='./logs',  # Logging directory
                 logging_steps=10,
                 load_best_model_at_end=True,  # Save the best model during training
                 metric_for_best_model='accuracy'
             )
-
-            optimizer = torch.optim.AdamW(self.model.parameters(), lr=5e-5, weight_decay=0.01)
 
             # Initialize Trainer
             trainer = Trainer(
@@ -139,7 +137,6 @@ class ImageEmotionDetection:
                 eval_dataset=val_dataset,
                 tokenizer=self.feature_extractor,
                 compute_metrics=self.compute_metrics,
-                optimizers=(optimizer, None) 
             )
 
             # Start MLflow run

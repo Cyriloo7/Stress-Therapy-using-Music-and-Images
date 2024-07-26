@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/d19725cb20314c7189460715e78063b8/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d19725cb20314c7189460715e78063b8
+run_name: /tmp/training
+run_uuid: d19725cb20314c7189460715e78063b8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722004103785
+status: 1
+tags: []
+user_id: cyril
