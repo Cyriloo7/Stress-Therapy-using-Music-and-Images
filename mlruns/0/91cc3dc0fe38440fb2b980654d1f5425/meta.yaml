@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/91cc3dc0fe38440fb2b980654d1f5425/artifacts
+end_time: 1721995887403
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 91cc3dc0fe38440fb2b980654d1f5425
+run_name: mercurial-flea-492
+run_uuid: 91cc3dc0fe38440fb2b980654d1f5425
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721995887244
+status: 3
+tags: []
+user_id: cyril

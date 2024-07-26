@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/26c21d7fb6d14bf0b4b4cf6690e77167/artifacts
+end_time: 1721998969117
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 26c21d7fb6d14bf0b4b4cf6690e77167
+run_name: delightful-hawk-615
+run_uuid: 26c21d7fb6d14bf0b4b4cf6690e77167
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721998966802
+status: 3
+tags: []
+user_id: cyril

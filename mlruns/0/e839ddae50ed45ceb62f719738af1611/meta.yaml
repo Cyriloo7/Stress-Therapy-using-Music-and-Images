@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/e839ddae50ed45ceb62f719738af1611/artifacts
+end_time: 1721999083077
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e839ddae50ed45ceb62f719738af1611
+run_name: fortunate-colt-428
+run_uuid: e839ddae50ed45ceb62f719738af1611
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721999079960
+status: 3
+tags: []
+user_id: cyril

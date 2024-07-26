@@ -16,6 +16,7 @@ import sys
 import threading
 import time
 import torch
+import mlflow
 
 Profanity = Profanity()
 DivideInToFourParts = DivideInToFourParts()
@@ -38,7 +39,8 @@ app = Flask(__name__)
 stress_detected = False
 input_feature = None
 random_song = None
-def thread_one(j_file, js_file, input_features):# detection thread
+
+def thread_one(j_file, js_file, input_features): # detection thread
     logger.info("Thread 1 started")
     global stress_detected
     count = 1
@@ -46,7 +48,7 @@ def thread_one(j_file, js_file, input_features):# detection thread
     while True:
         c=c+1
         try:
-            if count/100==0:
+            if count/2000==0:
                 prediction = StressDetection.detect_stress(j_file)
             else:
                 prediction = StressDetection.detect_stress(js_file)
@@ -71,8 +73,7 @@ def thread_one(j_file, js_file, input_features):# detection thread
                     stress_detected = False                
         except Exception as e:
             raise customexception(e, sys)
-        time.sleep(3)  # Check every 1 second
-
+        time.sleep(3)  # Check every 3 second
 
 def thread_two(random_song, phobia): # song recommendation, image generation, song streaming
     first_round = 0
@@ -119,7 +120,6 @@ def thread_two(random_song, phobia): # song recommendation, image generation, so
             random_song = recommended_songs.iloc[random_song_index]
         else:
             pass
-            
 
 def thread_three(random_song): # stream song
     SpotifySongStream.stream_song(random_song)
@@ -128,10 +128,10 @@ def thread_three(random_song): # stream song
 def index():
     return render_template('index.html')
 
-
 @app.route('/predict', methods=['POST'])
 def predict():
-    
+    mlflow.start_run()
+
     j_file = r"C:/Users/cyril/Downloads/flask inout json/flask inout json/time_pressure.json"
     js_file = r"C:/Users/cyril/Downloads/flask inout json/flask inout json/no_stress.json"
 
@@ -155,10 +155,8 @@ def predict():
     # Wait for threads to complete
     t1.join()
     t2.join()
-    #t3.join()
 
+    mlflow.end_run()
 
 if __name__ == '__main__':
-    #while True:
-        app.run(debug=False)
-        #time.sleep(180)
+    app.run(debug=False)

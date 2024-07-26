@@ -54,6 +54,7 @@ class SpotifySongStream:
                 print(f"Failed to get currently playing track: {response.status_code}")
         except Exception as e:
             logger.error(f"Error getting currently playing track: {e}")
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
 
@@ -67,6 +68,7 @@ class SpotifySongStream:
             except spotipy.exceptions.SpotifyException as e:
                 print(f"Error pausing playback: {e}")
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
         
     
@@ -104,6 +106,7 @@ class SpotifySongStream:
             time.sleep(1)
 
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
         

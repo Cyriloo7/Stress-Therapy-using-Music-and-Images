@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/bac12853432e42bd8daf362624b73ecc/artifacts
+end_time: 1721997534551
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bac12853432e42bd8daf362624b73ecc
+run_name: bittersweet-dog-869
+run_uuid: bac12853432e42bd8daf362624b73ecc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721997532489
+status: 3
+tags: []
+user_id: cyril

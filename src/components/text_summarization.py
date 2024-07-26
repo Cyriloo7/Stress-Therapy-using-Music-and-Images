@@ -3,6 +3,7 @@ import torch
 import sys
 from src.logger.logger import logger
 from src.exceptions.exception import customexception
+import mlflow
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -18,11 +19,12 @@ class TextSummarizer:
                   text = text.decode('utf-8')
             with torch.no_grad():
                 torch.cuda.empty_cache()
-                summary = self.pipe(str("summary of : " + text), max_length=512, min_length=150, do_sample=True, clean_up_tokenization_spaces=True)
+                summary = self.pipe(str(text), max_length=512, min_length=150, do_sample=True, clean_up_tokenization_spaces=True)
             logger.info("first summarization finished")
             summary = summary[0]['summary_text']
             return summary
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
           
 
@@ -33,10 +35,11 @@ class TextSummarizer:
                   text = text.decode('utf-8')
                with torch.no_grad():
                    torch.cuda.empty_cache()
-                   summary = self.pipe(str("summary of : "+text),max_length=200, min_length=30, do_sample=True, clean_up_tokenization_spaces=True)
+                   summary = self.pipe(str(text),max_length=200, min_length=30, do_sample=True, clean_up_tokenization_spaces=True)
                logger.info(" second summarization finished")
                return summary[0]['summary_text']
           except Exception as e:
+               logger.info(customexception(e, sys))
                raise customexception(e, sys)
           
      def third_summarize(self, text):
@@ -46,10 +49,11 @@ class TextSummarizer:
                   text = text.decode('utf-8')
                with torch.no_grad():
                    torch.cuda.empty_cache()
-                   summary = self.pipe(str("summary of : "+text),max_length=200, min_length=20, do_sample=True, clean_up_tokenization_spaces=True)
+                   summary = self.pipe(str(text),max_length=200, min_length=20, do_sample=True, clean_up_tokenization_spaces=True)
                logger.info(" second summarization finished")
                return summary[0]['summary_text']
           except Exception as e:
+               logger.info(customexception(e, sys))
                raise customexception(e, sys)
           
 """if __name__ == "__main__":

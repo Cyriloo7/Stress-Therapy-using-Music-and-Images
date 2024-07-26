@@ -3,6 +3,7 @@ import sys
 from src.exceptions.exception import customexception
 import pickle
 import json
+import mlflow
 
 
 class StressDetection:
@@ -14,7 +15,6 @@ class StressDetection:
             #logger.info("StressDetection Model loaded successfully.")
         except Exception as e:
             raise customexception(e, sys)
-    
     
     def get_input_feature_json_file(self, json_file):
 
@@ -62,6 +62,7 @@ class StressDetection:
             #logger.info("Features extracted successfully")
             return features
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
     
     def detect_stress(self, json_data):
@@ -73,6 +74,7 @@ class StressDetection:
             #logger.info("Stress level detected")
             return detection_prediction
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
     
 

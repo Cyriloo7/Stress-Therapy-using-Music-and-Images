@@ -27,5 +27,6 @@ class DivideInToFourParts:
                 divided_parts.append(part)
             logger.info("divide_text_into_parts finished")
             return divided_parts
-        except customexception as e:
+        except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)

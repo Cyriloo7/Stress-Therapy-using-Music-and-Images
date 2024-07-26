@@ -11,6 +11,7 @@ import sys
 from profanityfilter import ProfanityFilter
 from src.exceptions.exception import customexception
 from src.logger.logger import logger
+import mlflow
 
 # Ensure you have the WordNet data
 nltk.download('wordnet')
@@ -33,16 +34,20 @@ class Profanity:
         self.positive_words = set(word.lower() for word in words_list['positive_words'])
         self.negative_words = set(word.lower() for word in words_list['negative_words'])
         logger.info("Profanity JSON file loaded successfully")
-    
+
     def get_antonym(self, word):
-        antonyms = []
-        logger.info("get_antonym started")
-        for syn in wordnet.synsets(word):
-            for lemma in syn.lemmas():
-                if lemma.antonyms():
-                    antonyms.append(lemma.antonyms()[0].name())
-        logger.info("get_antonym finished successfully")
-        return antonyms[0] if antonyms else word
+        try:
+            antonyms = []
+            logger.info("get_antonym started")
+            for syn in wordnet.synsets(word):
+                for lemma in syn.lemmas():
+                    if lemma.antonyms():
+                        antonyms.append(lemma.antonyms()[0].name())
+            logger.info("get_antonym finished successfully")
+            return antonyms[0] if antonyms else word
+        except Exception as e:
+            logger.info(customexception(e, sys))
+            raise customexception(e, sys)
 
     def filter_profanity(self, sentence):
         return pf.censor(sentence)
@@ -56,6 +61,7 @@ class Profanity:
             positive_sentence = ' '.join(transformed_words)
             return self.filter_profanity(positive_sentence)
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
 if __name__ == "__main__":

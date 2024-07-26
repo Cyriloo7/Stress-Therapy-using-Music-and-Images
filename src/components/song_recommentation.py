@@ -5,6 +5,7 @@ from src.exceptions.exception import customexception
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import LabelEncoder
 from sklearn.impute import SimpleImputer
+import mlflow
 
 
 class SongRecommentation:
@@ -19,13 +20,13 @@ class SongRecommentation:
         self.df = self.df.drop(["Name", 'Track Name', 'Unnamed: 0',"Spotify URL"], axis=1)
         self.df['Genres'] = self.label_encoder.fit_transform(self.df['Genres'])
         self.processed_data = self.df
-        
-
+    
     def preprocess_recommender_data(self, data):
         try:
             data['Genres'] = self.label_encoder.fit_transform(data['Genres'])
             return data
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
     def kNN_song_recommender(self, input_features):
@@ -41,6 +42,7 @@ class SongRecommentation:
             logger.info("kNN_song_recommender finished")
             return top_songs
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
     
     def convert_input_feature(self, random_song):
@@ -77,6 +79,7 @@ class SongRecommentation:
             logger.info("Getting input feature finished")
             return input_features
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
     
     def get_song_and_artist_info(self, random_song):
@@ -88,6 +91,7 @@ class SongRecommentation:
                     }
             return input_features
         except Exception as e:
+            logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
 
