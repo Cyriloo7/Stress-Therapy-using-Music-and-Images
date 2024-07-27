@@ -10,7 +10,7 @@ from transformers import ViTFeatureExtractor
 from torchvision.transforms import Compose, Resize, Normalize, ToTensor
 from sklearn.preprocessing import LabelEncoder
 from transformers import ViTForImageClassification, TrainingArguments, Trainer
-from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter
+from torchvision.transforms import Compose, Resize, Normalize, ToTensor, RandomHorizontalFlip, RandomRotation, ColorJitter, RandomResizedCrop, GaussianBlur
 from datasets import load_metric
 import numpy as np
 import torch
@@ -23,10 +23,11 @@ class ImageEmotionDetection:
         self.feature_extractor = ViTFeatureExtractor.from_pretrained('google/vit-base-patch16-224')
         self.normalize = Normalize(mean=self.feature_extractor.image_mean, std=self.feature_extractor.image_std)
         self.transform = Compose([
-            Resize(self.feature_extractor.size["height"]),
+            RandomResizedCrop(self.feature_extractor.size["height"]),
             RandomHorizontalFlip(),
-            RandomRotation(10),
-            ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
+            RandomRotation(15),
+            ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.3),
+            GaussianBlur(3),
             ToTensor(),
             self.normalize
         ])
@@ -36,7 +37,7 @@ class ImageEmotionDetection:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     
-    def load_data(self, data_dir, max_images_per_class=3500):
+    def load_data(self, data_dir, max_images_per_class=4000):
         try:
             labels = os.listdir(data_dir)
             data = []
@@ -115,10 +116,10 @@ class ImageEmotionDetection:
             training_args = TrainingArguments(
                 output_dir='./results',
                 eval_strategy="steps",
-                per_device_train_batch_size=8,
-                per_device_eval_batch_size=8,
-                num_train_epochs=10,
-                learning_rate=5e-5,
+                per_device_train_batch_size=1,
+                per_device_eval_batch_size=1,
+                num_train_epochs=20,
+                learning_rate=3e-5,
                 weight_decay=0.01,
                 save_total_limit=3,
                 lr_scheduler_type='cosine',
