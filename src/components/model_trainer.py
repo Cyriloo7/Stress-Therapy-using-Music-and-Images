@@ -20,7 +20,7 @@ from src.utils.utils import ModelSaveAndLoad
 class ImageEmotionDetection:
     def __init__(self):
         self.model = ViTForImageClassification.from_pretrained('google/vit-base-patch16-224-in21k', num_labels=7)
-        self.feature_extractor = ViTFeatureExtractor.from_pretrained('google/vit-base-patch16-224-in21k')
+        self.feature_extractor = ViTFeatureExtractor.from_pretrained('google/vit-base-patch16-224')
         self.normalize = Normalize(mean=self.feature_extractor.image_mean, std=self.feature_extractor.image_std)
         self.transform = Compose([
             Resize(self.feature_extractor.size["height"]),
@@ -113,20 +113,20 @@ class ImageEmotionDetection:
         try:
             # Define training arguments
             training_args = TrainingArguments(
-                output_dir="/tmp/training",
-                evaluation_strategy="epoch",
+                output_dir='./results',
+                eval_strategy="steps",
                 per_device_train_batch_size=8,
                 per_device_eval_batch_size=8,
-                num_train_epochs=30,
+                num_train_epochs=10,
                 learning_rate=5e-5,
                 weight_decay=0.01,
                 save_total_limit=3,
-                lr_scheduler_type='cosine',  # Adding learning rate scheduler
-                warmup_steps=500,  # Adding warmup steps
-                logging_dir='./logs',  # Logging directory
+                lr_scheduler_type='cosine',
+                warmup_steps=500,
+                logging_dir='./logs',
                 logging_steps=10,
-                load_best_model_at_end=True,  # Save the best model during training
-                metric_for_best_model='accuracy'
+                metric_for_best_model='accuracy',
+                load_best_model_at_end=True,
             )
 
             # Initialize Trainer
