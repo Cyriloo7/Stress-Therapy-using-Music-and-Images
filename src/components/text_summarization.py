@@ -10,7 +10,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class TextSummarizer:
      def __init__(self):
           logger.info("TextSummarizer model initialized")
-          self.pipe = pipeline("summarization", model="Azma-AI/bart-large-text-summarizer")
+          self.pipe = pipeline("summarization", model="Azma-AI/bart-large-text-summarizer", device="cuda" if torch.cuda.is_available() else "cpu")
 
      def first_summarize(self, text):
         try:

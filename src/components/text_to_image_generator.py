@@ -17,7 +17,7 @@ class TextToImage:
         self.headers = {"Authorization": f"Bearer {self.API_TOKEN}"}
 
         self.summarizer = TextSummarizer()
-
+        self.emotion_pipeline = pipeline("image-classification", model="dima806/facial_emotions_image_detection", device=0 if torch.cuda.is_available() else -1)
         self.nsfw_pipeline = pipeline("image-classification", model="giacomoarienti/nsfw-classifier", device=0 if torch.cuda.is_available() else -1)
 
         torch.cuda.empty_cache()
@@ -67,9 +67,22 @@ class TextToImage:
                                 print(predicted_label)
 
                             if predicted_label == "neutral" or predicted_label == "drawings":
-                                j = 0
-                                image.save(f'artifacts/Generated image/Generated_image{i}.jpg', 'JPEG')
-                                progress = False
+                                emotion_results = self.nsfw_pipeline(image)
+                                emotion_predicted_label = emotion_results[0]['label']
+                                if emotion_predicted_label == "happy":
+                                    j = 0
+                                    image.save(f'artifacts/Generated image/Generated_image{i}.jpg', 'JPEG')
+                                    progress = False
+                                else:
+                                    logger.info(f"Generated image {i + 1} is {emotion_predicted_label} image. Retrying...")
+                                    print(f"Generated image {i + 1} is {emotion_predicted_label} image. Retrying...")
+                                    inp = self.summarizer.third_summarize(inp)
+                                    print(inp)
+                                    inp = "scenery image of, " + inp
+                                    j += 1
+
+                                    if j == 3:
+                                        progress = False
                             else:
                                 logger.info(f"Generated image {i + 1} is {predicted_label} image. Retrying...")
                                 print(f"Generated image {i + 1} is {predicted_label} image. Retrying...")

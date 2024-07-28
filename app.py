@@ -33,22 +33,25 @@ data = pd.read_csv("data/new_file.csv")
 
 # Shared variable and a lock
 lock = threading.Lock()
+stop_thread_two_event = threading.Event()
 
 app = Flask(__name__)
 
 stress_detected = False
 input_feature = None
 random_song = None
+song_finished = False
 
-def thread_one(j_file, js_file, input_features): # detection thread
+def thread_one(j_file, js_file, input_features, phobia): # detection thread
     logger.info("Thread 1 started")
     global stress_detected
+    global random_song
     count = 1
     c=0
     while True:
         c=c+1
         try:
-            if count/2000==0:
+            if count/20000==0:
                 prediction = StressDetection.detect_stress(j_file)
             else:
                 prediction = StressDetection.detect_stress(js_file)
@@ -70,13 +73,21 @@ def thread_one(j_file, js_file, input_features): # detection thread
                         break
                 time.sleep(50)    
                 with lock:
-                    stress_detected = False                
+                    stress_detected = False 
+                    stop_thread_two_event.set()
+                    time.sleep(50)
+                    stop_thread_two_event.clear()
+                    # Start a new thread two
+                    t2 = threading.Thread(target=thread_two, args=(phobia,))
+                    t2.start()               
         except Exception as e:
             raise customexception(e, sys)
         time.sleep(3)  # Check every 3 second
 
-def thread_two(random_song, phobia): # song recommendation, image generation, song streaming
+def thread_two(phobia): # song recommendation, image generation, song streaming
     first_round = 0
+    global song_finished
+    global random_song
     while True:
         logger.info("Getting random song feature values...")
         input_feature = SongRecommentation.convert_input_feature(random_song)
@@ -106,19 +117,23 @@ def thread_two(random_song, phobia): # song recommendation, image generation, so
         logger.info("Generating image finished")
 
         if first_round !=0:
+            logger.info("Waiting for the song to finish...")
             t3.join()
         first_round = 1
 
         if stress_detected == False:
             logger.info("Stress not detected, streaming song")
+            song_finished = False
             t3 = threading.Thread(target=thread_three, args=(random_song,))
             # Start thread three
             t3.start()
+            song_finished = True 
             recommended_songs = SongRecommentation.kNN_song_recommender(input_feature)
             random_song_index = random.randint(1, 200)
             print("random value ", random_song_index)
             random_song = recommended_songs.iloc[random_song_index]
         else:
+            time.sleep(10)
             pass
 
 def thread_three(random_song): # stream song
@@ -143,8 +158,8 @@ def predict():
     random_song = data.iloc[random_song_index]
     input_feature = SongRecommentation.convert_input_feature(random_song)
 
-    t1 = threading.Thread(target=thread_one, args=(j_file, js_file, input_feature))
-    t2 = threading.Thread(target=thread_two, args=(random_song, phobia))
+    t1 = threading.Thread(target=thread_one, args=(j_file, js_file, input_feature, phobia))
+    t2 = threading.Thread(target=thread_two, args=(phobia))
 
     # Start thread two
     t2.start()

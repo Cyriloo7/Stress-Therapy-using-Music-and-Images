@@ -51,7 +51,6 @@ class PhobiaWordsCleaning:
             else:
                 print("No phobia entered.")
                 logger.info("no phobia entered")
-                mlflow.log_metrics("No phobia words to replaced", prompt)
                 return prompt
         except Exception as e:
             logger.info(customexception(e, sys))
