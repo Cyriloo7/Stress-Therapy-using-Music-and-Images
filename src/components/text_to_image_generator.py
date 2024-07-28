@@ -17,8 +17,8 @@ class TextToImage:
         self.headers = {"Authorization": f"Bearer {self.API_TOKEN}"}
 
         self.summarizer = TextSummarizer()
-        self.emotion_pipeline = pipeline("image-classification", model="dima806/facial_emotions_image_detection", device=0 if torch.cuda.is_available() else -1)
-        self.nsfw_pipeline = pipeline("image-classification", model="giacomoarienti/nsfw-classifier", device=0 if torch.cuda.is_available() else -1)
+        self.emotion_pipeline = pipeline("image-classification", model="dima806/facial_emotions_image_detection")
+        self.nsfw_pipeline = pipeline("image-classification", model="giacomoarienti/nsfw-classifier")
 
         torch.cuda.empty_cache()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

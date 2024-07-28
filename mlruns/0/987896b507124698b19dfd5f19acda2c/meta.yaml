@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/987896b507124698b19dfd5f19acda2c/artifacts
+end_time: 1722170648811
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 987896b507124698b19dfd5f19acda2c
+run_name: calm-hog-986
+run_uuid: 987896b507124698b19dfd5f19acda2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722170560456
+status: 3
+tags: []
+user_id: cyril

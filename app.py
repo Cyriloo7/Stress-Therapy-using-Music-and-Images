@@ -41,8 +41,9 @@ stress_detected = False
 input_feature = None
 random_song = None
 song_finished = False
+phobia = ""
 
-def thread_one(j_file, js_file, input_features, phobia): # detection thread
+def thread_one(j_file, js_file, input_features): # detection thread
     logger.info("Thread 1 started")
     global stress_detected
     global random_song
@@ -84,7 +85,7 @@ def thread_one(j_file, js_file, input_features, phobia): # detection thread
             raise customexception(e, sys)
         time.sleep(3)  # Check every 3 second
 
-def thread_two(phobia): # song recommendation, image generation, song streaming
+def thread_two(): # song recommendation, image generation, song streaming
     first_round = 0
     global song_finished
     global random_song
@@ -145,6 +146,7 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    global random_song
     mlflow.start_run()
 
     j_file = r"C:/Users/cyril/Downloads/flask inout json/flask inout json/time_pressure.json"
@@ -158,8 +160,8 @@ def predict():
     random_song = data.iloc[random_song_index]
     input_feature = SongRecommentation.convert_input_feature(random_song)
 
-    t1 = threading.Thread(target=thread_one, args=(j_file, js_file, input_feature, phobia))
-    t2 = threading.Thread(target=thread_two, args=(phobia))
+    t1 = threading.Thread(target=thread_one, args=(j_file, js_file, input_feature))
+    t2 = threading.Thread(target=thread_two, args=())
 
     # Start thread two
     t2.start()

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/8593e19e3c644346aff62fdfd77f673c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8593e19e3c644346aff62fdfd77f673c
+run_name: fearless-ray-540
+run_uuid: 8593e19e3c644346aff62fdfd77f673c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722170048608
+status: 1
+tags: []
+user_id: cyril
