@@ -1,4 +1,4 @@
-import pandas as pd
-random_song = pd.read_csv('data/new_file.csv')
-random_song = random_song.sample(1)
-print(random_song["Track Name"])
+import os
+
+length = os.listdir(r"C:\Users\cyril\Documents\GitHub\Stress-Therapy-using-Music-and-Images\artifacts\Generated image\Generated_image_1722255218")
+print(len(length))

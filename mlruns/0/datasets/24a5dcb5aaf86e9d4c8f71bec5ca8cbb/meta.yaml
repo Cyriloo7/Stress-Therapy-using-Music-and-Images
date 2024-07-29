@@ -1,0 +1,20 @@
+digest: 060f6881
+name: dataset
+profile: '{"num_rows": 99533, "num_elements": 1891127}'
+schema: '{"mlflow_colspec": [{"type": "integer", "name": "Genres", "required": true},
+  {"type": "long", "name": "Popularity", "required": true}, {"type": "double", "name":
+  "Loudness", "required": true}, {"type": "double", "name": "Tempo", "required": true},
+  {"type": "double", "name": "Tempo Confidence", "required": true}, {"type": "long",
+  "name": "Time Signature", "required": true}, {"type": "double", "name": "Time Signature
+  Confidence", "required": true}, {"type": "long", "name": "Key", "required": true},
+  {"type": "double", "name": "Key Confidence", "required": true}, {"type": "long",
+  "name": "Mode", "required": true}, {"type": "double", "name": "Mode Confidence",
+  "required": true}, {"type": "double", "name": "Danceability", "required": true},
+  {"type": "double", "name": "Energy", "required": true}, {"type": "double", "name":
+  "Speechiness", "required": true}, {"type": "double", "name": "Acousticness", "required":
+  true}, {"type": "double", "name": "Instrumentalness", "required": true}, {"type":
+  "double", "name": "Liveness", "required": true}, {"type": "double", "name": "Valence",
+  "required": true}, {"type": "long", "name": "Duration ms", "required": true}]}'
+source: '{"tags": {"mlflow.user": "cyril", "mlflow.source.name": "c:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/app.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "dcc4109baca7d33cd01c26a1638b0243891577dc"}}'
+source_type: code

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/e45cf7b430894855a61fcff63f42d200/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e45cf7b430894855a61fcff63f42d200
+run_name: rumbling-shad-556
+run_uuid: e45cf7b430894855a61fcff63f42d200
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722242821971
+status: 1
+tags: []
+user_id: cyril

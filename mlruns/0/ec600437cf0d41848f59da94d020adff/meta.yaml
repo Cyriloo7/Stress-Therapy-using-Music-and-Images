@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/ec600437cf0d41848f59da94d020adff/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ec600437cf0d41848f59da94d020adff
+run_name: rumbling-roo-428
+run_uuid: ec600437cf0d41848f59da94d020adff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722245206544
+status: 1
+tags: []
+user_id: cyril

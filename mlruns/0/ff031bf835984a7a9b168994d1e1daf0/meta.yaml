@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/ff031bf835984a7a9b168994d1e1daf0/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ff031bf835984a7a9b168994d1e1daf0
+run_name: debonair-grouse-819
+run_uuid: ff031bf835984a7a9b168994d1e1daf0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722246974098
+status: 1
+tags: []
+user_id: cyril

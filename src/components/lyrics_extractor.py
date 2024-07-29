@@ -84,11 +84,13 @@ class LyricsExtractor:
                         lyrics = song.lyrics
                         if self.is_english(lyrics):
                             #print(lyrics.encode('utf-8', errors='replace').decode('utf-8'))
+                            logger.info(f"lyrics: {lyrics.encode('utf-8', errors='replace').decode('utf-8')}")
                             return lyrics.encode('utf-8')
                         else:
                             print("The lyrics are not in English. Translating...")
                             translated_lyrics = self.translate_to_english(lyrics)
                             #print(translated_lyrics.encode('utf-8', errors='replace').decode('utf-8'))
+                            logger.info(f"lyrics: {translated_lyrics.encode('utf-8', errors='replace').decode('utf-8')}")
                             return translated_lyrics.encode('utf-8')
                     else:
                         print("Song not found.")

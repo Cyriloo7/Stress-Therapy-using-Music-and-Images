@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/9380431b5ec44092ade7781f194af6a7/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9380431b5ec44092ade7781f194af6a7
+run_name: thundering-toad-397
+run_uuid: 9380431b5ec44092ade7781f194af6a7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722191708437
+status: 1
+tags: []
+user_id: cyril

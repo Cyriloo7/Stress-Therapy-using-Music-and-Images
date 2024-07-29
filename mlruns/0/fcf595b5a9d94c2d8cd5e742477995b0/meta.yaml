@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/fcf595b5a9d94c2d8cd5e742477995b0/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fcf595b5a9d94c2d8cd5e742477995b0
+run_name: legendary-seal-803
+run_uuid: fcf595b5a9d94c2d8cd5e742477995b0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722179777954
+status: 1
+tags: []
+user_id: cyril

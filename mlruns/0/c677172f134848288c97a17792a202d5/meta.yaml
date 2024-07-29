@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/c677172f134848288c97a17792a202d5/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c677172f134848288c97a17792a202d5
+run_name: blushing-horse-63
+run_uuid: c677172f134848288c97a17792a202d5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722193678005
+status: 1
+tags: []
+user_id: cyril

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/8eb2fb52ea2e4972ab061bc51c3cca1b/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8eb2fb52ea2e4972ab061bc51c3cca1b
+run_name: spiffy-croc-282
+run_uuid: 8eb2fb52ea2e4972ab061bc51c3cca1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722171529278
+status: 1
+tags: []
+user_id: cyril
