@@ -6,8 +6,26 @@ class DivideInToFourParts:
     def __init__(self):
         pass
 
+    def word_count(self, text):
+        words = text.split()
+        word_count = len(words)
+        return word_count
+
     def divide_into_four_parts(self, text, num_parts=4):
         try:
+            word_count = self.word_count(text)
+            if word_count<10:
+                num_parts = 1
+            elif word_count<20:
+                num_parts = 2
+            elif word_count<30:
+                num_parts = 3
+            elif word_count<40:
+                num_parts = 4
+            elif word_count<50:
+                num_parts = 5
+            else:
+                num_parts = 6
             logger.info("divide_text_into_parts started")
             # Split the text into sentences based on full stops
             sentences = text.split('. ')
