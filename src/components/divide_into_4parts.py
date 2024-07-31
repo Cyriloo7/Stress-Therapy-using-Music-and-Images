@@ -7,52 +7,47 @@ class DivideInToFourParts:
         pass
 
     def word_count(self, text):
-        words = text.split()
-        word_count = len(words)
-        return word_count
+        """
+        Count the number of words in the given text.
+
+        Parameters:
+        text (str): The input text.
+
+        Returns:
+        int: The number of words in the text.
+        """
+        return len(text.split())
 
     def divide_into_four_parts(self, text, num_parts=4):
+        """
+        Divide the given text into parts based on the number of words.
+
+        Parameters:
+        text (str): The input text.
+        num_parts (int, optional): The number of parts to divide the text into. Defaults to 4.
+
+        Returns:
+        list: A list of strings, where each string represents a part of the divided text.
+
+        Raises:
+        customexception: If an exception occurs during the division process.
+        """
         try:
             word_count = self.word_count(text)
-            if word_count<10:
-                num_parts = 1
-            elif word_count<20:
-                num_parts = 2
-            elif word_count<30:
-                num_parts = 3
-            elif word_count<40:
-                num_parts = 4
-            elif word_count<50:
-                num_parts = 5
-            else:
-                num_parts = 6
+            num_parts = min(6, (word_count - 1) // 10 + 1)  # Calculate number of parts based on word count
             logger.info("divide_text_into_parts started")
-            # Split the text into sentences based on full stops
             sentences = text.split('. ')
-
-            # Calculate the number of sentences per part
-            sentences_per_part = len(sentences) // num_parts
-            print(sentences_per_part)
-
-            # Initialize an empty list to store the divided parts
-            divided_parts = []
-
-            # Loop through the sentences and create parts
-            for i in range(num_parts):
-                start_index = i * sentences_per_part
-                end_index = (i + 1) * sentences_per_part if i < num_parts - 1 else len(sentences)
-                part = '. '.join(sentences[start_index:end_index])
-                divided_parts.append(part)
+            sentences_per_part = -(-len(sentences) // num_parts)  # Calculate sentences per part
+            divided_parts = ['. '.join(sentences[i * sentences_per_part:(i + 1) * sentences_per_part]) for i in range(num_parts)]
             logger.info("divide_text_into_parts finished")
             return divided_parts
         except Exception as e:
             logger.info(customexception(e, sys))
             raise customexception(e, sys)
-        
 
-"""if __name__ == '__main__':
-    text = "Goin' out tonight, changes into something red Her mother doesn't like that kind of dress Everything she never had she's showin' off Drivin' too fast, moon is breakin' through her hair She's headin' for somethin' that she won't forget Havin' no regrets is all that she really wants We're only gettin' older, baby And I've been thinkin' about it lately Does it ever drive you crazy Just how fast the night changes? Everything that you've ever dreamed of Disappearing when you wake up But there's nothing to be afraid of Even when the night changes It will never change me and you Chasing it tonight, doubts are runnin' 'round her head He's waitin', hides behind a cigarette Heart is beatin' loud and she doesn't want it to stop Movin' too fast, moon is lightin' up her skin She's fallin', doesn't even know it yet Havin' no regrets is all that she really wants We're only gettin' older, baby And I've been thinkin' about it lately Does it ever drive you crazy Just how fast the night changes? Everything that you've ever dreamed of Disappearing when you wake up But there's nothing to be afraid of Even when the night changes It will never change me and you Goin' out tonight, changes into something red Her mother doesn't like that kind of dress Reminds her of the missin' piece of innocence she lost We're only gettin' older, baby And I've been thinkin' about it lately Does it ever drive you crazy Just how fast the night changes? Everything that you've ever dreamed of Disappearing when you wake up But there's nothing to be afraid of Even when the night changes It will never change, baby It will never change, baby It will never change me and you"
+if __name__ == '__main__':
+    text = "Goin' out tonight, changes into something red. Her mother doesn't like that kind of dress. She's headin' for something that she won't forget. She doesn't even know that she's fallin'. We're only gettin' older, baby. The night changes very fast. Disappearing when you wake up is nothing to be afraid of. Even though the night changes, it will never change me and you. The thought brings her back to the memories of the lost piece of innocence that she lost. The thoughts are brought back to her by the moonlight. It is impossible for the night to change, but it is possible for the people with whom I am with.    - The song by The Beatles."
     div_obj = DivideInToFourParts()
     divided_parts = div_obj.divide_into_four_parts(text)
     for i, part in enumerate(divided_parts, start=1):
-        print(f"Part {i}: {part}")"""
+        print(f"Part {i}: {part}")
