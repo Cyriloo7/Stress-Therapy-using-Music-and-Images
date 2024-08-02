@@ -98,7 +98,7 @@ class TextToImage:
         model_id = "amazon.titan-image-generator-v1"
         try:
             directory_name = (
-                f"artifacts/Generated_image/Generated_image_{int(time.time())}"
+                f"artifacts/Generated image/Generated_image_{int(time.time())}"
             )
             os.makedirs(directory_name)
             print(f"Images will be saved in directory: {directory_name}")

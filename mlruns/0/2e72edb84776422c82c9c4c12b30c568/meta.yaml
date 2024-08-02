@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/2e72edb84776422c82c9c4c12b30c568/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2e72edb84776422c82c9c4c12b30c568
+run_name: traveling-smelt-656
+run_uuid: 2e72edb84776422c82c9c4c12b30c568
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722619377730
+status: 1
+tags: []
+user_id: cyril

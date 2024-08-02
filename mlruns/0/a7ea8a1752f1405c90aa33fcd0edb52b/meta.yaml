@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/a7ea8a1752f1405c90aa33fcd0edb52b/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a7ea8a1752f1405c90aa33fcd0edb52b
+run_name: chill-rook-889
+run_uuid: a7ea8a1752f1405c90aa33fcd0edb52b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722618528316
+status: 1
+tags: []
+user_id: cyril

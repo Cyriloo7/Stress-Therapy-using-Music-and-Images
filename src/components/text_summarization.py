@@ -97,7 +97,7 @@ class TextSummarizer:
                 {
                     "inputText": str(input_text),
                     "textGenerationConfig": {
-                        "maxTokenCount": 3072,
+                        "maxTokenCount": 4072,
                         "stopSequences": [],
                         "temperature": 0.5,
                         "topP": 0.9,

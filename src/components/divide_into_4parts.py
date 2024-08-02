@@ -36,7 +36,7 @@ class DivideInToFourParts:
         try:
             word_count = self.word_count(text)
             num_parts = min(
-                6, (word_count - 1) // 10 + 1
+                6, (word_count - 1) // 15 + 1
             )  # Calculate number of parts based on word count
             logger.info("divide_text_into_parts started")
             sentences = text.split(". ")
