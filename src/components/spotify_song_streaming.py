@@ -132,5 +132,6 @@ class SpotifySongStream:
     print(spotify_song_stream.get_current_playing_track())
     random_song = pd.read_csv('data/new_file.csv')
     random_song = random_song.sample(1)
-    #spotify_song_stream.stream_song(random_song)
-    spotify_song_stream.pause_song()"""
+    spotify_song_stream.stream_song(random_song)
+    spotify_song_stream.pause_song()
+"""
