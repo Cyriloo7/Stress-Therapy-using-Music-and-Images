@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/bf2be2babf7345c790ad48ce44a6e0e5/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bf2be2babf7345c790ad48ce44a6e0e5
+run_name: worried-lynx-420
+run_uuid: bf2be2babf7345c790ad48ce44a6e0e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723952982683
+status: 1
+tags: []
+user_id: cyril

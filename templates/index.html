@@ -135,11 +135,10 @@
     </div> -->
     <section>
     <div class="container">
-        <h1>Upload Sensor readings in JSON format</h1>
+        <h1>If phobia, Enter phobia</h1>
         <form id="uploadForm" action="/predict" method="post" enctype="multipart/form-data">
             <label for="input_text">Enter phobia (if appicable):</label>
             <input type="text" name="text" >
-            <input type="file" name="file" accept=".json">
             <button type="submit" >Upload and Predict</button>
         </form>
         <div class="result" id="resultContainer">

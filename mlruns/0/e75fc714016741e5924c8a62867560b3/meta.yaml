@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/e75fc714016741e5924c8a62867560b3/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e75fc714016741e5924c8a62867560b3
+run_name: skittish-moth-881
+run_uuid: e75fc714016741e5924c8a62867560b3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723948475562
+status: 1
+tags: []
+user_id: cyril

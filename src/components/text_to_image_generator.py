@@ -198,8 +198,9 @@ class TextToImage:
                         print(inp)
 
                     j += 1
+                    time.sleep(1)
 
-                if j == 6:
+                if j ==6:
                     logger.error(f"Failed to generate image {i + 1} after 6 retries.")
                     print(f"Failed to generate image {i + 1} after 6 retries.")
 

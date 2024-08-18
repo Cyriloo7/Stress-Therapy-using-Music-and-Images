@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/a423837b0e0c49bbb8beae0aceddbafa/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a423837b0e0c49bbb8beae0aceddbafa
+run_name: upset-foal-765
+run_uuid: a423837b0e0c49bbb8beae0aceddbafa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723950516510
+status: 1
+tags: []
+user_id: cyril

@@ -32,13 +32,19 @@ class PhobiaWordsCleaning:
     def preprocess_phobia_words(self, prompt, phobia):
         try:
             logger.info("preprocess_phobia_words started")
+            
+            # Check if prompt is None
+            if prompt is None:
+                logger.error("The prompt is None")
+                return None
+            
             # If the user has a phobia, process the prompt
             if phobia:
-
                 # Check if the phobia is in the dictionary
                 if phobia in self.phobias:
                     related_words = self.phobias[phobia]
                     words_to_replace = ""
+                    
                     # Loop through each related word
                     for word in related_words:
                         # Lemmatize the related word
@@ -52,15 +58,18 @@ class PhobiaWordsCleaning:
                         ]
                         for w in words_to_replace:
                             prompt = prompt.replace(w, " ")
-                logger.info("phobia words to replaced and returned")
-                mlflow.log_metrics("phobia words to replaced", prompt)
-                return prompt
+                            
+                    logger.info("Phobia words replaced and returned")
+                    return prompt
+                else:
+                    logger.info("Phobia not found in dictionary")
+                    return prompt
             else:
-                print("No phobia entered.")
-                logger.info("no phobia entered")
+                logger.info("No phobia entered")
                 return prompt
+                
         except Exception as e:
-            logger.info(customexception(e, sys))
+            logger.error(f"An error occurred: {e}")
             raise customexception(e, sys)
 
 
