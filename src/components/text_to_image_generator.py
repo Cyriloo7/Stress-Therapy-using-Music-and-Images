@@ -167,7 +167,7 @@ class TextToImage:
                                         f"Generated image {i + 1} is {emotion_predicted_label} image. Retrying..."
                                     )
                                     inp = self.summarizer.third_summarize(
-                                        "happy scenery image of, " + inp
+                                        "happy content image of the lyrics, " + inp
                                     )
                                     print(inp)
                             else:
@@ -178,7 +178,7 @@ class TextToImage:
                                     f"Generated image {i + 1} is {predicted_label} image. Retrying..."
                                 )
                                 inp = self.summarizer.third_summarize(
-                                    "scenery image of, " + inp
+                                    "happy scenery image of the lyrics, " + inp
                                 )
                                 print(inp)
 

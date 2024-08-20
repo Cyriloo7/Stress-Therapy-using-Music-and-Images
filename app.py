@@ -119,7 +119,7 @@ def thread_two():  # song recommendation, image generation, song streaming
         )
         logger.info("Phobia words are cleaning finished")
         logger.info("Text is divided into 4 parts")
-        divided_lyrics = DivideInToFourParts.divide_into_four_parts(cleaned_lyrics)
+        divided_lyrics = DivideInToFourParts.divide_into_four_parts(str(cleaned_lyrics))
         logger.info("Text is divided into 4 parts finished")
         """logger.info("The divided parts is again summarized")
         part_summary = []

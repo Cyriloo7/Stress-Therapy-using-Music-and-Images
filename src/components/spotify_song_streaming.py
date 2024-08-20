@@ -4,37 +4,27 @@ import pandas as pd
 import spotipy
 import cv2
 import time
+from spotipy.oauth2 import SpotifyOAuth
 from src.logger.logger import logger
 from src.exceptions.exception import customexception
-from spotipy.oauth2 import SpotifyOAuth
 
 class SpotifySongStream:
     def __init__(self):
-        logger.info("SpotifySongStream started")
-        self.client_id = "2f495710f7854b099382a20ae7d6cc87"
-        self.client_secret = "1157403c5e6c4f70abe329eff142721f"
-        self.redirect_uri = "http://localhost:8080/callback"
-        self.scope = "user-read-playback-state user-modify-playback-state"
-
-        self.sp_oauth = SpotifyOAuth(
-            client_id=self.client_id,
-            client_secret=self.client_secret,
-            redirect_uri=self.redirect_uri,
-            scope=self.scope,
-        )
-                
-        self.token_info = self.sp_oauth.get_access_token()
-        logger.info("self.token_info collected: %s", self.token_info)
-
-    def get_token_info(self):
         try:
-            token_info = (
-                self.sp_oauth.get_cached_token()
-                or self.sp_oauth.get_access_token(as_dict=False)
-            )
-            return token_info
+            logger.info("SpotifySongStream started")
+            self.client_id = "2f495710f7854b099382a20ae7d6cc87"
+            self.client_secret = "1157403c5e6c4f70abe329eff142721f"
+            self.redirect_uri = "http://localhost:8080/callback"
+            self.scope = "user-read-playback-state user-modify-playback-state"
+
+            self.sp_oauth = SpotifyOAuth(self.client_id, self.client_secret, self.redirect_uri,scope=self.scope)
+
+            # Get access token
+            self.token_info = self.sp_oauth.get_access_token(as_dict =False)
+            logger.info("self.token_info collected: %s", self.token_info)
         except Exception as e:
-            logger.error(f"Error obtaining token: {e}")
+            logger.error(customexception(e, sys))
+            raise customexception(e, sys)
 
     def pause_song(self):
         try:
@@ -42,7 +32,7 @@ class SpotifySongStream:
             if not self.token_info or "access_token" not in self.token_info:
                 raise customexception("Invalid or missing access token", sys)
 
-            sp = spotipy.Spotify(auth=self.token_info["access_token"])
+            sp = spotipy.Spotify(auth=self.token_info)
             sp.pause_playback()
             print("Playback paused successfully.")
         except spotipy.exceptions.SpotifyException as e:
@@ -53,11 +43,10 @@ class SpotifySongStream:
 
     def stream_song(self, random_song, directory_name):
         try:
-            sp_client = spotipy.Spotify(auth=self.token_info["access_token"])
-            artist_name = random_song["Name"].values[0]
-            song_title = random_song["Track Name"].values[0]
-            logger.info(f"Streaming song: {song_title} by {artist_name}")
-            duration = random_song["Duration ms"].values[0]
+            sp_client = spotipy.Spotify(auth=self.token_info)
+            artist_name = random_song["Name"]
+            song_title = random_song["Track Name"]
+            duration = random_song["Duration ms"]
 
             result = sp_client.search(
                 q=f"track:{song_title} artist:{artist_name}", type="track"
@@ -94,5 +83,5 @@ if __name__ == "__main__":
     spotify_song_stream = SpotifySongStream()
     random_song = pd.read_csv('data/new_file.csv')
     random_song = random_song.sample(1)
-    spotify_song_stream.stream_song(random_song, r"C:\Users\cyril\Documents\GitHub\Stress-Therapy-using-Music-and-Images\artifacts\Generated image\Generated_image_1723950621")
-    spotify_song_stream.pause_song()
+    spotify_song_stream.stream_song(random_song, r"C:\Users\cyril\Documents\GitHub\Stress-Therapy-using-Music-and-Images\artifacts\Generated image\Generated_image_1723953001")
+    #spotify_song_stream.pause_song()

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/d295223163e44be7a29930d66a34e725/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d295223163e44be7a29930d66a34e725
+run_name: receptive-snake-738
+run_uuid: d295223163e44be7a29930d66a34e725
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723993963030
+status: 1
+tags: []
+user_id: cyril

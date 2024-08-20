@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/b368430a0cbc46dbb6fe61c9fd5c2489/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b368430a0cbc46dbb6fe61c9fd5c2489
+run_name: overjoyed-moth-326
+run_uuid: b368430a0cbc46dbb6fe61c9fd5c2489
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723990481874
+status: 1
+tags: []
+user_id: cyril

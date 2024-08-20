@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/c0d4dd9ec1a1466885f8998040348886/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c0d4dd9ec1a1466885f8998040348886
+run_name: nimble-perch-351
+run_uuid: c0d4dd9ec1a1466885f8998040348886
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723996145919
+status: 1
+tags: []
+user_id: cyril

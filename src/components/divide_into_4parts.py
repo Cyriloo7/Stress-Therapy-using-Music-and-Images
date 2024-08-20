@@ -36,7 +36,7 @@ class DivideInToFourParts:
         try:
             word_count = self.word_count(text)
             num_parts = min(
-                6, (word_count - 1) // 15 + 1
+                6, (word_count - 1) // 10 + 1
             )  # Calculate number of parts based on word count
             logger.info("divide_text_into_parts started")
             sentences = text.split(". ")
@@ -55,11 +55,12 @@ class DivideInToFourParts:
             logger.info(customexception(e, sys))
             raise customexception(e, sys)
 
-
-"""if __name__ == "__main__":
+"""
+if __name__ == "__main__":
     text = "Goin' out tonight, changes into something red. Her mother doesn't like that kind of dress. She's headin' for something that she won't forget. She doesn't even know that she's fallin'. We're only gettin' older, baby. The night changes very fast. Disappearing when you wake up is nothing to be afraid of. Even though the night changes, it will never change me and you. The thought brings her back to the memories of the lost piece of innocence that she lost. The thoughts are brought back to her by the moonlight. It is impossible for the night to change, but it is possible for the people with whom I am with.    - The song by The Beatles.Goin' out tonight, changes into something red. Her mother doesn't like that kind of dress. She's headin' for something that she won't forget. She doesn't even know that she's fallin'. We're only gettin' older, baby. The night changes very fast. Disappearing when you wake up is nothing to be afraid of. Even though the night changes, it will never change me and you. The thought brings her back to the memories of the lost piece of innocence that she lost. The thoughts are brought back to her by the moonlight. It is impossible for the night to change, but it is possible for the people with whom I am with.    - The song by The Beatles"
     div_obj = DivideInToFourParts()
     divided_parts = div_obj.divide_into_four_parts(text)
     for i, part in enumerate(divided_parts, start=1):
         print(f"Part {i}: {part}")
+
 """

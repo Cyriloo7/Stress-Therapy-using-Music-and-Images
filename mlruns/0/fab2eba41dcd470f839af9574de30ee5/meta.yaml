@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/fab2eba41dcd470f839af9574de30ee5/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fab2eba41dcd470f839af9574de30ee5
+run_name: bedecked-ram-773
+run_uuid: fab2eba41dcd470f839af9574de30ee5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723991721924
+status: 1
+tags: []
+user_id: cyril

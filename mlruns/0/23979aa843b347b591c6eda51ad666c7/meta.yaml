@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/cyril/Documents/GitHub/Stress-Therapy-using-Music-and-Images/mlruns/0/23979aa843b347b591c6eda51ad666c7/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 23979aa843b347b591c6eda51ad666c7
+run_name: flawless-ape-97
+run_uuid: 23979aa843b347b591c6eda51ad666c7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723990807456
+status: 1
+tags: []
+user_id: cyril
