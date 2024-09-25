@@ -15,9 +15,7 @@ import mlflow
 class LyricsExtractor:
     def __init__(self):
         logger.info("Initializing LyricsExtractor")
-        self.client_access_token = (
-            "UxedcM-g8B3Z0SLMKXGyOkqEwHanXlRXNs0lvw0aYAPgO72W9YRRrogK5c165BJe"
-        )
+        self.client_access_token = (${{secrets.CLIENT_ACCESS_TOKEN}})
         self.genius = lyricsgenius.Genius(
             self.client_access_token, timeout=10
         )  # Increase timeout to 10 seconds
