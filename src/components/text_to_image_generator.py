@@ -218,17 +218,4 @@ if __name__ == "__main__":
     obj.text_to_image(input_txt)
 
 
-    self.negative_prompts = ["pornography", "bed", "cot", "mattress", "sleep", "pillow", "bondage", "breast", "sofa", "cleavage", "sexy", "seductive", "ass", "porn", "(((deformed)))", "blurry", "bad anatomy",
-                                        "disfigured", "poorly drawn face", "mutation", "mutated", "(extra_limb)", "(ugly)", "censored", "censor_bar", "multiple breasts", "(mutated hands and fingers:1.5)",
-                                        "(long body :1.3)", "(mutation, poorly drawn :1.2)", "black-white", "bad anatomy", "liquid body", "liquid tongue", "disfigured", "malformed", "mutated", "anatomical nonsense",
-                                        "text font ui", "error", "malformed hands", "long neck", "blurred", "lowers", "low res", "bad proportions", "bad shadow", "uncoordinated body", "unnatural body", "fused breasts",
-                                        "bad breasts", "huge breasts", "poorly drawn breasts", "extra breasts", "liquid breasts", "heavy breasts", "missing breasts", "huge haunch", "huge thighs", "huge calf", "bad hands",
-                                        "fused hand", "missing hand", "disappearing arms", "disappearing thigh", "disappearing calf", "disappearing legs", "fused ears", "bad ears", "poorly drawn ears",
-                                        "extra ears", "liquid ears", "heavy ears", "missing ears", "old photo", "black and white filter", "colorless", "(((deformed)))", "blurry", "bad anatomy",
-                                        "disfigured", "poorly drawn face", "mutation", "mutated", "(extra_limb)", "(ugly)", "(poorly drawn hands)", "fused fingers", "messy drawing", "broken legs", "censor",
-                                        "censored", "censor_bar", "multiple breasts", "(mutated hands and fingers:1.5)", "(long body :1.3)", "(mutation, poorly drawn :1.2)", "black-white", "bad anatomy",
-                                        "liquid body", "liquid tongue", "disfigured", "malformed", "mutated", "anatomical nonsense", "text font ui", "error", "malformed hands", "long neck", "blurred", "lowers", "low res",
-                                        "bad proportions", "bad shadow", "uncoordinated body", "unnatural body", "fused breasts", "bad breasts", "huge breasts", "poorly drawn breasts", "extra breasts", "liquid breasts",
-                                        "heavy breasts", "missing breasts", "huge haunch", "huge thighs", "huge calf", "bad hands", "fused hand", "missing hand", "disappearing arms", "disappearing thigh",
-                                        "disappearing calf", "disappearing legs", "fused ears", "bad ears", "poorly drawn ears", "extra ears", "liquid ears", "heavy ears", "missing ears", "NSFW", "Naked", "Nude"]
-                """
+"""
