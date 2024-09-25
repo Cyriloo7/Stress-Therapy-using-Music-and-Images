@@ -12,8 +12,8 @@ class SpotifySongStream:
     def __init__(self):
         try:
             logger.info("SpotifySongStream started")
-            self.client_id = "2f495710f7854b099382a20ae7d6cc87"
-            self.client_secret = "1157403c5e6c4f70abe329eff142721f"
+            self.client_id = ${{secrets.CLIENT_ID}}
+            self.client_secret = ${{secrets.CLIENT_SECRET}}
             self.redirect_uri = "http://localhost:8080/callback"
             self.scope = "user-read-playback-state user-modify-playback-state"
 
